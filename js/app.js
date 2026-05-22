@@ -365,13 +365,24 @@
         const el  = e.target;
         const end = parseFloat(el.dataset.count);
         if (isNaN(end)) return;
-        const dur = 1800, t0 = performance.now();
-        const run = now => {
-          const p = Math.min((now - t0) / dur, 1);
-          el.textContent = Math.floor(end * (1 - Math.pow(1 - p, 3)));
-          if (p < 1) requestAnimationFrame(run);
-          else el.textContent = end;
+        
+        const dur = 2000;
+        let startTimestamp = null;
+        
+        const run = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / dur, 1);
+          
+          const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(end * easeOutCubic);
+          
+          if (progress < 1) {
+            requestAnimationFrame(run);
+          } else {
+            el.textContent = end;
+          }
         };
+        
         requestAnimationFrame(run);
         io.unobserve(el);
       });
@@ -384,25 +395,6 @@
      WORK CARDS — hover video play
      ============================================================ */
   function initWorkCards() {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        const vid = e.target.querySelector('.wc-vid');
-        if (!vid) return;
-        
-        if (e.isIntersecting) {
-          if (vid.dataset.manualPause !== 'true') {
-            vid.play().catch(() => {});
-            updatePlayBtn(e.target, true);
-          }
-        } else {
-          if (!vid.paused) {
-             vid.pause();
-             updatePlayBtn(e.target, false);
-          }
-        }
-      });
-    }, { threshold: 0.1 });
-
     function updatePlayBtn(card, isPlaying) {
       const iconPause = card.querySelector('.icon-pause');
       const iconPlay = card.querySelector('.icon-play');
@@ -416,7 +408,17 @@
       const vid = card.querySelector('.wc-vid');
       if (!vid) return;
 
-      io.observe(card);
+      // Autoplay on hover, pause on mouseout
+      card.addEventListener('mouseenter', () => {
+        if (vid.dataset.manualPause !== 'true') {
+          vid.play().catch(() => {});
+          updatePlayBtn(card, true);
+        }
+      });
+      card.addEventListener('mouseleave', () => {
+        vid.pause();
+        updatePlayBtn(card, false);
+      });
 
       const btnPlayPause = card.querySelector('.wc-btn-playpause');
       const btnMute = card.querySelector('.wc-btn-mute');
@@ -468,7 +470,6 @@
           }
         });
       }
-
     });
   }
   /* ============================================================
@@ -568,6 +569,24 @@
     const error   = document.getElementById('cfError');
     const submitBtn = document.getElementById('cfSubmit');
     const emailInput = document.getElementById('cfEmail');
+
+    // Handle Plan Selection
+    const cfPlan = document.getElementById('cfPlan');
+    const cfPlanWrap = document.getElementById('cfPlanWrap');
+    
+    document.querySelectorAll('a[href="#contact"]').forEach(link => {
+      link.addEventListener('click', () => {
+        if (!cfPlan || !cfPlanWrap) return;
+        if (link.classList.contains('price-btn')) {
+          cfPlan.value = link.getAttribute('data-plan') + ' Plan';
+          cfPlanWrap.style.display = 'block';
+        } else {
+          cfPlan.value = '';
+          cfPlanWrap.style.display = 'none';
+        }
+      });
+    });
+
     if (!form) return;
 
     form.addEventListener('submit', async e => {
