@@ -16,28 +16,36 @@
      ============================================================ */
   const preEl    = document.getElementById('preloader');
   const preFill  = document.getElementById('preFill');
-  let   pct      = 0;
   let   started  = false;
 
-  const pInt = setInterval(() => {
-    pct += Math.random() * 14 + 4;
-    if (pct >= 100) {
-      pct = 100;
-      clearInterval(pInt);
-      if (preFill) preFill.style.width = '100%';
-      setTimeout(() => {
-        if (preEl) preEl.classList.add('out');
-        if (!started) { started = true; boot(); }
-      }, 350);
-    } else {
+  function endPreloader() {
+    if (preFill) preFill.style.width = '100%';
+    setTimeout(() => {
+      if (preEl) preEl.classList.add('out');
+      if (!started) { started = true; boot(); }
+    }, 150);
+  }
+
+  if (document.readyState === 'complete') {
+    endPreloader();
+  } else {
+    let pct = 0;
+    const pInt = setInterval(() => {
+      pct += (100 - pct) * 0.1;
       if (preFill) preFill.style.width = pct + '%';
-    }
-  }, 55);
+    }, 100);
+    
+    window.addEventListener('load', () => {
+      clearInterval(pInt);
+      endPreloader();
+    });
+  }
 
   /* ============================================================
      BOOT — called after preloader
      ============================================================ */
   function boot() {
+    initAccessibility();
     initCursor();
     initCarouselDrag();
     initNavbar();
@@ -55,6 +63,7 @@
     initMagnetics();
     initContactForm();
     initParticles();
+    initLazyVideos();
   }
 
   /* ============================================================
@@ -699,4 +708,71 @@
     });
   }
 
+  /* ============================================================
+     LAZY VIDEOS
+     ============================================================ */
+  function initLazyVideos() {
+    const vids = document.querySelectorAll('.lazy-vid');
+    if (!vids.length || !('IntersectionObserver' in window)) return;
+    
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        const vid = e.target;
+        if (e.isIntersecting) {
+          // Load sources if not loaded yet
+          const sources = vid.querySelectorAll('source[data-src]');
+          let loaded = false;
+          sources.forEach(src => {
+            src.src = src.dataset.src;
+            src.removeAttribute('data-src');
+            loaded = true;
+          });
+          if (loaded) vid.load();
+
+          // Autoplay hero video only on desktop
+          if (vid.classList.contains('hero-vid') && window.innerWidth > 768) {
+             vid.play().catch(() => {});
+          }
+        } else {
+          vid.pause();
+        }
+      });
+    }, { rootMargin: '200px' });
+    
+    vids.forEach(v => io.observe(v));
+  }
+
 })();
+
+  /* ============================================================
+     ACCESSIBILITY / REDUCED MOTION
+     ============================================================ */
+  function initAccessibility() {
+    const animToggle = document.getElementById('animToggle');
+    let animsPaused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function updateAnims() {
+      const heroCanvas = document.getElementById('heroCanvas');
+      if (animsPaused) {
+        if (window.gsap && gsap.globalTimeline) gsap.globalTimeline.pause();
+        if (heroCanvas) heroCanvas.style.display = 'none';
+        document.body.classList.add('reduced-motion');
+        if (animToggle) animToggle.textContent = 'Play Animations';
+      } else {
+        if (window.gsap && gsap.globalTimeline) gsap.globalTimeline.play();
+        if (heroCanvas && window.innerWidth > 768) heroCanvas.style.display = 'block';
+        document.body.classList.remove('reduced-motion');
+        if (animToggle) animToggle.textContent = 'Pause Animations';
+      }
+    }
+
+    if (animToggle) {
+      animToggle.addEventListener('click', () => {
+        animsPaused = !animsPaused;
+        updateAnims();
+      });
+    }
+    
+    // Initial check
+    updateAnims();
+  }
