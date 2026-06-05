@@ -39,12 +39,6 @@
 </head>
 <body>
 
-<!-- ░░░ PRELOADER ░░░ -->
-<div id="preloader" class="preloader" role="status" aria-label="Loading">
-  <div class="pre-logo"><img src="image/logo.png" alt="Logo" width="200" height="50" fetchpriority="high" decoding="async"></div>
-  <div class="pre-bar"><div class="pre-fill" id="preFill"></div></div>
-</div>
-
 <!-- ░░░ CUSTOM CURSOR ░░░ -->
 <div class="c-dot" id="cDot" aria-hidden="true"></div>
 <div class="c-ring" id="cRing" aria-hidden="true"></div>
@@ -183,8 +177,8 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 32px;
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: none;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
@@ -222,8 +216,8 @@
   
   .ph-title-inner {
     display: block;
-    opacity: 0;
-    transform: translateY(100%);
+    opacity: 1;
+    transform: none;
   }
 
   .ph-highlight {
@@ -248,8 +242,8 @@
     align-items: center;
     gap: 12px;
     margin-bottom: 32px;
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: none;
   }
 
   .ph-stars {
@@ -314,8 +308,8 @@
     max-width: 700px;
     margin-bottom: 40px;
     line-height: 1.6;
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: none;
     text-align: center;
   }
 
@@ -326,8 +320,8 @@
     justify-content: center;
     gap: 24px;
     margin-bottom: 60px;
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: none;
   }
 
   @media (max-width: 600px) {
@@ -383,77 +377,6 @@
     border-color: rgba(255, 255, 255, 0.2);
   }
 
-  /* Visual Showcase */
-  .ph-showcase {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    opacity: 0;
-    transform: translateY(40px);
-    z-index: 10;
-  }
-
-  @media (max-width: 1024px) {
-    .ph-showcase { grid-template-columns: repeat(2, 1fr); }
-  }
-  
-  @media (max-width: 600px) {
-    .ph-showcase { grid-template-columns: 1fr; }
-  }
-
-  .ph-card {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    aspect-ratio: 9/16;
-    background: #111;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .ph-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 30px 60px rgba(124, 58, 237, 0.2);
-  }
-
-  .ph-card:nth-child(even) {
-    margin-top: 24px;
-  }
-
-  .ph-card video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-  }
-
-  .ph-card:hover video {
-    opacity: 1;
-  }
-
-  .ph-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .ph-card-label {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    z-index: 2;
-  }
 </style>
 
 <section class="premium-hero" id="hero" aria-label="Hero section">
@@ -505,114 +428,8 @@
       </a>
     </div>
 
-    <div class="ph-showcase" id="phShowcase">
-      <div class="ph-card">
-        <video muted loop playsinline autoplay preload="auto">
-          <source src="assets/posters/ai-coffee-preview.mp4" type="video/mp4">
-        </video>
-        <div class="ph-card-overlay"></div>
-        <div class="ph-card-label">Commercial Ads</div>
-      </div>
-      <div class="ph-card">
-        <video muted loop playsinline autoplay preload="auto">
-          <source src="assets/posters/ai-sweet-preview.mp4" type="video/mp4">
-        </video>
-        <div class="ph-card-overlay"></div>
-        <div class="ph-card-label">Reels & Shorts</div>
-      </div>
-      <div class="ph-card">
-        <video muted loop playsinline autoplay preload="auto">
-          <source src="assets/posters/ai-hanuman-preview.mp4" type="video/mp4">
-        </video>
-        <div class="ph-card-overlay"></div>
-        <div class="ph-card-label">AI Avatars</div>
-      </div>
-      <div class="ph-card">
-        <video muted loop playsinline autoplay preload="auto">
-          <source src="assets/posters/showreel-hero.mp4" type="video/mp4">
-        </video>
-        <div class="ph-card-overlay"></div>
-        <div class="ph-card-label">Motion Graphics</div>
-      </div>
-    </div>
   </div>
 </section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    if (typeof gsap === 'undefined') return;
-
-    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-
-    // 1. Badge fades in
-    tl.to("#phBadge", { opacity: 1, y: 0, duration: 1 }, 0.2);
-
-    // 2. Headline reveals line by line
-    tl.to(".ph-title-inner", { 
-      opacity: 1, 
-      y: 0, 
-      duration: 1.2, 
-      stagger: 0.15 
-    }, 0.3);
-
-    // 3. Trust row fades in
-    tl.to("#phTrustRow", { opacity: 1, y: 0, duration: 1 }, 0.8);
-
-    // 4. Subtitle fades in
-    tl.to("#phSubtitle", { opacity: 1, y: 0, duration: 1 }, 1.0);
-
-    // 5. Buttons animate upward
-    tl.to("#phActions", { opacity: 1, y: 0, duration: 1 }, 1.2);
-
-    // 6. Showcase cards float slightly
-    tl.to(".ph-showcase", { opacity: 1, y: 0, duration: 1.5, ease: "back.out(1.2)" }, 1.4);
-    tl.fromTo(".ph-card", 
-      { y: 40, opacity: 0 }, 
-      { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power3.out" }, 
-      1.4
-    );
-
-    // Scroll parallax for showcase cards
-    gsap.to(".ph-showcase", {
-      yPercent: -15,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-
-    // Magnetic buttons
-    const magBtns = document.querySelectorAll('.magnetic-btn');
-    magBtns.forEach(btn => {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const h = rect.width / 2;
-        const v = rect.height / 2;
-        const x = e.clientX - rect.left - h;
-        const y = e.clientY - rect.top - v;
-        
-        gsap.to(btn, {
-          x: x * 0.3,
-          y: y * 0.3,
-          duration: 0.4,
-          ease: "power2.out"
-        });
-      });
-      
-      btn.addEventListener('mouseleave', () => {
-        gsap.to(btn, {
-          x: 0,
-          y: 0,
-          duration: 0.7,
-          ease: "elastic.out(1, 0.3)"
-        });
-      });
-    });
-  });
-</script>
 
 <style>
   /* Premium Trust Section */
@@ -1059,11 +876,11 @@
       </div>
 
       <div class="reel-player" id="reelPlayer">
-        <video id="reelVid" playsinline preload="none" poster="assets/posters/showreel-poster.webp">
-          <source src="assets/videos/showreel.mp4" type="video/mp4">
+        <video id="reelVid" playsinline preload="none" poster="assets/posters/final show reel -poster.webp">
+          <source src="assets/videos/final show reel .mp4" type="video/mp4">
         </video>
         <div class="reel-over" id="reelOver">
-          <button class="reel-btn mag" id="reelBtn" data-mag="22" aria-label="Play showreel video">
+          <button class="reel-btn mag" id="reelBtn" data-mag="22" aria-label="Play final show reel  video">
             <div class="rb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></div>
             <span>Play Showreel</span>
           </button>
@@ -3181,7 +2998,7 @@
           x: xOffset,
           scale: scale,
           opacity: opacity,
-          /* removed blur */,
+          /* removed blur */
           zIndex: zIndex,
           duration: duration,
           ease: "power3.inOut"
