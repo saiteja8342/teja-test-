@@ -527,8 +527,8 @@
 
   /* ─────────────────── CONTACT FORM ─────────────────── */
   function initContactForm() {
-    const form = document.getElementById('contactForm');
-    const success = document.getElementById('formSuccess');
+    const form = document.getElementById('contactForm') || document.getElementById('inquiryForm');
+    const success = document.getElementById('formSuccess') || document.querySelector('.cf-success');
     if (!form) return;
 
     // B7 FIX: Ensure success card spans full grid width

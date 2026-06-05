@@ -33,9 +33,145 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/main.min.css">
+
+  <style>
+    /* ═══════════════════════════════════════════
+       TYPOGRAPHY OVERRIDE SYSTEM
+       Space Grotesk + Inter
+       ═══════════════════════════════════════════ */
+
+    /* Override CSS custom properties */
+    :root {
+      --ff-head: 'Space Grotesk', sans-serif !important;
+      --ff-body: 'Inter', sans-serif !important;
+    }
+
+    /* ── 1. Hero Headlines (H1) ── */
+    /* Space Grotesk Bold 700 — reduced 25%, max-width 900px */
+    h1,
+    .ph-title, .hero-title, .hero-h1, .h1-row {
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-weight: 700 !important;
+      overflow-wrap: break-word !important;
+      word-break: break-word !important;
+    }
+    .ph-title {
+      font-size: clamp(3rem, 6vw, 6rem) !important;
+      max-width: 900px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      line-height: 1.05 !important;
+      letter-spacing: -0.02em !important;
+      margin-bottom: 48px !important;
+    }
+
+    /* ── 2. Section Headings (H2/H3) ── */
+    /* Space Grotesk SemiBold 600 */
+    h2, h3, h4, h5, h6,
+    .sec-title, .cta-title,
+    .wg-title, .res-h3, .svc-card h3, .proc-card h3,
+    .test-client h4, .pf-col-title, .pf-cta-title,
+    .wc-custom-overlay h3, .wc-foot-left h3,
+    .inq-title, .pc-head h3, .cf-success h3,
+    .exp-card-title, .ps-card-title {
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-weight: 600 !important;
+    }
+
+    /* ── 3. Navigation Menu ── */
+    /* Space Grotesk Medium 500 */
+    .nav-item, .nav-menu a,
+    .d-item, .foot-nav a {
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-weight: 500 !important;
+    }
+
+    /* ── 4. Buttons & CTA Buttons ── */
+    /* Space Grotesk Medium 500 */
+    button, .btn-primary, .btn-ghost, .btn-secondary,
+    .nav-btn, .d-cta,
+    .ph-btn-primary, .ph-btn-secondary,
+    .pf-btn-primary, .pf-btn-secondary,
+    a.msc-quote, a.msc-wa,
+    .inq-submit-btn, .reel-btn span,
+    .pc-foot .btn-primary, .pc-foot .btn-ghost {
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-weight: 500 !important;
+    }
+
+    /* ── 5. Small Labels & Tags ── */
+    /* Space Grotesk Bold 700 */
+    .sec-label, .ps-label, .exp-label, .pp-label,
+    .inq-label, .wc-tag, .pc-badge, .hero-pill,
+    .wc-num, .svc-n, .pc-num,
+    .wc-foot-left span {
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-weight: 700 !important;
+    }
+
+    /* ── 6. Statistics, Numbers & Metrics ── */
+    /* Space Grotesk Bold 700 */
+    .metric-value, .stat-num, [data-count],
+    .hs-n, .hs-s, .pc-price,
+    .pre-logo, .nav-logo, .foot-brand {
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-weight: 700 !important;
+    }
+
+    /* ── 7. Body Text, Descriptions, Paragraphs ── */
+    /* Inter Regular 400 */
+    body, p,
+    .wc-desc, .res-p, .svc-card p, .proc-card p,
+    .test-card p, .hero-sub,
+    .sec-desc, .cta-sub,
+    .pf-brand-desc, .pf-bottom-copy, .pf-center-tag,
+    .inq-subtitle, .inq-info-content p,
+    .foot-tagline, .foot-copy,
+    .pc-label, .pc-features li,
+    .exp-card-text, .metric-label,
+    .tc-author span, .hs-l {
+      font-family: 'Inter', sans-serif !important;
+      font-weight: 400 !important;
+    }
+
+    /* ── 8. Form Inputs ── */
+    /* Inter Regular 400 */
+    input, textarea, select,
+    .cf-field input, .cf-field textarea,
+    .inq-input, .inq-textarea,
+    .inq-label-float, .cf-field label {
+      font-family: 'Inter', sans-serif !important;
+    }
+
+    /* ── 9. Footer Links & Text ── */
+    /* Inter Regular 400 */
+    .pf-link-list a, .pf-contact-val,
+    .pf-bottom-links a, .foot-divider {
+      font-family: 'Inter', sans-serif !important;
+      font-weight: 400 !important;
+    }
+
+    /* ── Inherit rules for links inside headings ── */
+    h1 a, h2 a, h3 a {
+      font-family: inherit !important;
+      font-weight: inherit !important;
+    }
+
+    /* ── Ticker / Marquee ── */
+    .tick-track span, .c-drag {
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-weight: 700 !important;
+    }
+
+    /* ── Author names in testimonials ── */
+    .tc-author strong {
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-weight: 600 !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -199,7 +335,7 @@
 
   /* Headline */
   .ph-title {
-    font-family: var(--ff-head, 'Bebas Neue', sans-serif);
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif);
     font-size: clamp(4rem, 8vw, 8rem);
     line-height: 0.9;
     color: #fff;
@@ -401,10 +537,10 @@
       <div class="ph-stars">★★★★★</div>
       <div class="ph-trust-content">
         <div class="ph-avatars">
-          <img src="https://i.pravatar.cc/100?img=1" alt="Client" class="ph-avatar">
-          <img src="https://i.pravatar.cc/100?img=2" alt="Client" class="ph-avatar">
-          <img src="https://i.pravatar.cc/100?img=3" alt="Client" class="ph-avatar">
-          <img src="https://i.pravatar.cc/100?img=4" alt="Client" class="ph-avatar">
+          <img src="https://i.pravatar.cc/100?img=1" alt="Client" class="ph-avatar" loading="lazy">
+          <img src="https://i.pravatar.cc/100?img=2" alt="Client" class="ph-avatar" loading="lazy">
+          <img src="https://i.pravatar.cc/100?img=3" alt="Client" class="ph-avatar" loading="lazy">
+          <img src="https://i.pravatar.cc/100?img=4" alt="Client" class="ph-avatar" loading="lazy">
         </div>
         <div class="ph-trust-text">Trusted by Creators, Brands & Businesses</div>
       </div>
@@ -483,7 +619,7 @@
   }
 
   .metric-value {
-    font-family: var(--ff-head, 'Bebas Neue', sans-serif);
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif);
     font-size: 3.5rem;
     line-height: 1;
     color: #fff;
@@ -559,7 +695,7 @@
   .marquee-item {
     display: flex;
     align-items: center;
-    font-family: var(--ff-head, 'Bebas Neue', sans-serif);
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif);
     font-size: 1.5rem;
     letter-spacing: 3px;
     color: rgba(255, 255, 255, 0.3);
@@ -756,7 +892,7 @@
       <div class="work-group fade-up" style="margin-top: 64px;">
         <h3 class="wg-title">Viral Reels & Shorts</h3>
         <div class="work-carousel" data-cursor="drag">
-
+          
           <article class="work-card vertical">
             <div class="wc-thumb">
               <video class="wc-vid lazy-vid" poster="assets/posters/ai-avatar-intro.webp" loading="lazy" muted loop playsinline preload="none">
@@ -837,6 +973,67 @@
               </div>
               <div class="wc-over" aria-hidden="true">
                 <span class="wc-num">03</span>
+                <div class="wc-controls">
+                  <button class="wc-btn-mute" aria-label="Unmute">
+                    <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+                    <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                  </button>
+                  <button class="wc-btn-playpause" aria-label="Pause">
+                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><polygon points="5,3 19,12 5,21"/></svg>
+                  </button>
+                  <button class="wc-btn-fullscreen" aria-label="Fullscreen">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                  </button>
+                </div></div>
+            </div>
+            </article>
+          <article class="work-card vertical">
+            <div class="wc-thumb">
+              <video class="wc-vid lazy-vid" loading="lazy" muted loop playsinline preload="none">
+                <source data-src="assets/videos/garuda reel .mp4" type="video/mp4">
+              </video>
+              <div class="wc-custom-overlay">
+                <div class="wc-play-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </div>
+                <div class="wc-tag">reel edit</div>
+                <h3>reels taking</h3>
+                <p class="wc-desc">Clean, professional avatar delivery for sales pages.</p>
+              </div>
+              <div class="wc-over" aria-hidden="true">
+                <span class="wc-num">04</span>
+                <div class="wc-controls">
+                  <button class="wc-btn-mute" aria-label="Unmute">
+                    <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+                    <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                  </button>
+                  <button class="wc-btn-playpause" aria-label="Pause">
+                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><polygon points="5,3 19,12 5,21"/></svg>
+                  </button>
+                  <button class="wc-btn-fullscreen" aria-label="Fullscreen">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                  </button>
+                </div></div>
+            </div>
+            </article>
+
+          <article class="work-card vertical">
+            <div class="wc-thumb">
+              <video class="wc-vid lazy-vid" loading="lazy" muted loop playsinline preload="none">
+                <source data-src="assets/videos/finla w.mp4" type="video/mp4">
+              </video>
+              <div class="wc-custom-overlay">
+                <div class="wc-play-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </div>
+                <div class="wc-tag">New Reel</div>
+                <h3>Final W</h3>
+                <p class="wc-desc">Latest viral video addition.</p>
+              </div>
+              <div class="wc-over" aria-hidden="true">
+                <span class="wc-num">05</span>
                 <div class="wc-controls">
                   <button class="wc-btn-mute" aria-label="Unmute">
                     <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
@@ -988,7 +1185,7 @@
     background: linear-gradient(90deg, transparent, #a855f7, transparent);
   }
   .ps-title {
-    font-family: var(--ff-head, 'Bebas Neue', sans-serif);
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif);
     font-size: clamp(3rem, 6vw, 5rem);
     line-height: 1;
     color: #fff;
@@ -1109,7 +1306,7 @@
   }
 
   .ps-card-title {
-    font-family: var(--ff-head, 'Bebas Neue', sans-serif);
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif);
     font-size: 2.2rem;
     color: #fff;
     margin-bottom: 16px;
@@ -1483,11 +1680,11 @@
           <div class="ba-media-wrapper" style="display: flex; gap: 16px; align-items: stretch; margin-bottom: 24px;">
             <div class="ba-media" style="flex: 1; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.1);">
               <div style="position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.6);  padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: #fff; z-index: 2;">BEFORE: Raw</div>
-              <img src="assets/posters/ai-reel.webp" alt="Raw footage" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(50%) brightness(0.7);">
+              <img src="assets/posters/ai-reel.webp" alt="Raw footage" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(50%) brightness(0.7);">
             </div>
             <div class="ba-media" style="flex: 1; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid var(--purple-light); box-shadow: 0 0 20px rgba(124,58,237,0.2);">
               <div style="position: absolute; top: 12px; left: 12px; background: var(--purple-light); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: #fff; z-index: 2;">AFTER: Cinematic</div>
-              <img src="assets/posters/ai-reel.webp" alt="Cinematic Edit" style="width: 100%; height: 100%; object-fit: cover;">
+              <img src="assets/posters/ai-reel.webp" alt="Cinematic Edit" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
           </div>
           <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Creator Hook Transformation</h3>
@@ -1499,11 +1696,11 @@
           <div class="ba-media-wrapper" style="display: flex; gap: 16px; align-items: stretch; margin-bottom: 24px;">
             <div class="ba-media" style="flex: 1; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.1);">
               <div style="position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.6);  padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: #fff; z-index: 2;">BEFORE: Raw</div>
-              <img src="assets/posters/ai-coffee.webp" alt="Raw footage" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(50%) brightness(0.7);">
+              <img src="assets/posters/ai-coffee.webp" alt="Raw footage" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(50%) brightness(0.7);">
             </div>
             <div class="ba-media" style="flex: 1; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid var(--purple-light); box-shadow: 0 0 20px rgba(124,58,237,0.2);">
               <div style="position: absolute; top: 12px; left: 12px; background: var(--purple-light); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: #fff; z-index: 2;">AFTER: Cinematic</div>
-              <img src="assets/posters/ai-coffee.webp" alt="Cinematic Edit" style="width: 100%; height: 100%; object-fit: cover;">
+              <img src="assets/posters/ai-coffee.webp" alt="Cinematic Edit" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
           </div>
           <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Product Ad Polish</h3>
@@ -1577,7 +1774,7 @@
   }
 
   .exp-title {
-    font-family: var(--ff-head, 'Bebas Neue', sans-serif);
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif);
     font-size: clamp(2.5rem, 5vw, 4rem);
     color: #fff;
     line-height: 1.2;
@@ -1815,7 +2012,7 @@
   }
 
   .pp-title {
-    font-family: var(--ff-head, 'Bebas Neue', sans-serif);
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif);
     font-size: clamp(3rem, 6vw, 4.5rem);
     color: #fff;
     line-height: 1.1;
@@ -2219,7 +2416,7 @@
   }
 
   .cp-title {
-    font-family: var(--ff-head, 'Bebas Neue', sans-serif);
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif);
     font-size: clamp(3rem, 7vw, 5.5rem);
     color: #fff;
     line-height: 1;
@@ -2326,7 +2523,7 @@
     position: absolute;
     right: -10px;
     bottom: -20px;
-    font-family: var(--ff-head, 'Bebas Neue', sans-serif);
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif);
     font-size: 10rem;
     color: rgba(255, 255, 255, 0.03);
     line-height: 1;
@@ -2406,7 +2603,7 @@
   }
 
   .cp-cta-title {
-    font-family: var(--ff-head, 'Bebas Neue', sans-serif);
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif);
     font-size: clamp(2.5rem, 5vw, 4rem);
     color: #fff;
     margin-bottom: 20px;
@@ -2701,7 +2898,7 @@
   }
   
   .pt-title {
-    font-family: var(--ff-head, 'Bebas Neue', sans-serif);
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif);
     font-size: clamp(3rem, 6vw, 4.5rem);
     color: #fff;
     line-height: 1.1;
@@ -3121,7 +3318,7 @@
   }
 
   .inq-title {
-    font-family: var(--ff-head, 'Bebas Neue', sans-serif);
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif);
     font-size: clamp(3rem, 6vw, 4.5rem);
     color: #fff;
     line-height: 1.1;
@@ -3566,8 +3763,14 @@
             <label for="inqLink" class="inq-label-float">Project / Drive Link (Optional)</label>
           </div>
 
-          <button type="submit" class="inq-submit-btn">GET MY CUSTOM QUOTE</button>
+          <div id="inqError" style="display:none; margin-bottom: 16px; padding: 16px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; color: #ef4444; text-align: center; font-weight: 600;">
+            Oops! Something went wrong. Please check your details and try again.
+          </div>
+          <button type="submit" class="inq-submit-btn" id="inqSubmitText">GET MY CUSTOM QUOTE</button>
         </form>
+        <div id="inqSuccess" style="display:none; padding: 24px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 12px; color: #10b981; text-align: center; font-weight: 600; margin-top: 24px;">
+          Thank you! Your project details have been sent. We'll be in touch within 24 hours.
+        </div>
       </div>
 
     </div>
@@ -3635,13 +3838,14 @@
   /* Top CTA Section */
   .pf-cta {
     text-align: center;
-    padding-bottom: 80px;
+    padding-bottom: 64px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    margin-bottom: 80px;
+    margin-bottom: 64px;
   }
 
   .pf-cta-title {
-    font-family: var(--ff-head, 'Bebas Neue', sans-serif);
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif) !important;
+    font-weight: 700 !important;
     font-size: clamp(3rem, 6vw, 4.5rem);
     color: #fff;
     margin-bottom: 20px;
@@ -3649,6 +3853,8 @@
   }
 
   .pf-cta-sub {
+    font-family: var(--ff-body, 'Inter', sans-serif) !important;
+    font-weight: 400 !important;
     color: rgba(255, 255, 255, 0.6);
     font-size: 1.15rem;
     max-width: 700px;
@@ -3664,11 +3870,12 @@
   }
 
   .pf-btn-primary {
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif) !important;
+    font-weight: 500 !important;
     padding: 16px 36px;
     background: linear-gradient(135deg, #3b82f6, #8b5cf6);
     color: #fff;
     border-radius: 100px;
-    font-weight: 600;
     font-size: 1.05rem;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -3696,11 +3903,12 @@
   }
 
   .pf-btn-secondary {
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif) !important;
+    font-weight: 500 !important;
     padding: 16px 36px;
     background: rgba(255, 255, 255, 0.03);
     color: #fff;
     border-radius: 100px;
-    font-weight: 600;
     font-size: 1.05rem;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -3713,31 +3921,74 @@
     transform: translateY(-3px);
   }
 
+  .pf-metrics-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 48px;
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.05);
+  }
+
+  .pf-metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .pf-metric-val {
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif) !important;
+    font-weight: 700 !important;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+
+  .pf-metric-lbl {
+    font-family: var(--ff-body, 'Inter', sans-serif) !important;
+    font-weight: 400 !important;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
   /* Main Grid */
   .pf-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 60px;
-    margin-bottom: 80px;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 64px;
   }
 
   @media (max-width: 1024px) {
     .pf-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
     }
   }
   
   @media (max-width: 640px) {
     .pf-grid {
       grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .pf-metrics-row {
+      gap: 24px;
+      justify-content: space-around;
+    }
+    .pf-metric {
+      width: 40%;
     }
   }
 
   .pf-col-title {
+    font-family: var(--ff-head, 'Space Grotesk', sans-serif) !important;
+    font-weight: 600 !important;
     color: #fff;
     font-size: 1.1rem;
-    font-weight: 700;
     margin-bottom: 24px;
     letter-spacing: 1px;
   }
@@ -3754,11 +4005,24 @@
   }
 
   .pf-brand-desc {
+    font-family: var(--ff-body, 'Inter', sans-serif) !important;
+    font-weight: 400 !important;
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.95rem;
     line-height: 1.6;
+    margin-bottom: 12px;
+    max-width: 320px;
+  }
+
+  .pf-trust-statement {
+    font-family: var(--ff-body, 'Inter', sans-serif) !important;
+    font-weight: 400 !important;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+    line-height: 1.5;
     margin-bottom: 32px;
     max-width: 320px;
+    font-style: italic;
   }
 
   .pf-socials {
@@ -3803,15 +4067,18 @@
   }
 
   .pf-link-list a {
+    font-family: var(--ff-body, 'Inter', sans-serif) !important;
+    font-weight: 500 !important;
     color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
     font-size: 0.95rem;
-    transition: color 0.2s ease;
+    transition: all 0.3s ease;
     display: inline-block;
   }
 
   .pf-link-list a:hover {
     color: #60a5fa;
+    transform: translateX(4px);
   }
 
   /* Contact Column */
@@ -3824,6 +4091,8 @@
   }
 
   .pf-contact-label {
+    font-family: var(--ff-body, 'Inter', sans-serif) !important;
+    font-weight: 500 !important;
     color: rgba(255, 255, 255, 0.4);
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -3833,15 +4102,18 @@
   }
 
   .pf-contact-val {
+    font-family: var(--ff-body, 'Inter', sans-serif) !important;
+    font-weight: 500 !important;
     color: #fff;
     font-size: 1rem;
-    font-weight: 500;
     text-decoration: none;
     transition: color 0.2s ease;
+    display: inline-block;
   }
 
   a.pf-contact-val:hover {
     color: #a855f7;
+    transform: translateX(4px);
   }
 
   .pf-contact-badge {
@@ -3872,7 +4144,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 32px 0;
+    padding: 24px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.4);
     font-size: 0.85rem;
@@ -3914,11 +4186,31 @@
   <div class="pf-container fade-up">
     <!-- Top CTA Section -->
     <div class="pf-cta">
-      <h2 class="pf-cta-title">Ready To Elevate Your Content?</h2>
-      <p class="pf-cta-sub">Professional editing, AI-powered workflows, and cinematic storytelling for creators, brands, and businesses.</p>
+      <h2 class="pf-cta-title">Ready to Transform Your Content?</h2>
+      <p class="pf-cta-sub">Premium video editing, AI content creation, commercial ads, and short-form content designed to grow your brand.</p>
       <div class="pf-cta-actions">
-        <a href="#contact" class="pf-btn-primary">Start Your Project</a>
+        <a href="#contact" class="pf-btn-primary">Get Free Quote</a>
         <a href="#work" class="pf-btn-secondary">View Portfolio</a>
+      </div>
+      
+      <!-- Trust Metrics Row -->
+      <div class="pf-metrics-row">
+        <div class="pf-metric">
+          <span class="pf-metric-val">50+</span>
+          <span class="pf-metric-lbl">Projects Delivered</span>
+        </div>
+        <div class="pf-metric">
+          <span class="pf-metric-val">10M+</span>
+          <span class="pf-metric-lbl">Views Generated</span>
+        </div>
+        <div class="pf-metric">
+          <span class="pf-metric-val">48H</span>
+          <span class="pf-metric-lbl">Average Delivery</span>
+        </div>
+        <div class="pf-metric">
+          <span class="pf-metric-val">Worldwide</span>
+          <span class="pf-metric-lbl">Clients</span>
+        </div>
       </div>
     </div>
 
@@ -3929,7 +4221,8 @@
         <a href="#" class="pf-logo">
           <img src="image/logo.png" alt="MOTIONNODEEDITS" width="180" height="32" loading="lazy">
         </a>
-        <p class="pf-brand-desc">AI-powered cinematic editing for creators, brands, and businesses.</p>
+        <p class="pf-brand-desc">Premium AI Video Editing Agency.</p>
+        <p class="pf-trust-statement">Trusted by creators, brands, and businesses worldwide.</p>
         <div class="pf-socials">
           <a href="https://www.instagram.com/motionnodeedits/" target="_blank" rel="noopener" class="pf-soc-link" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
@@ -3940,7 +4233,7 @@
           <a href="https://wa.me/918985351756" target="_blank" rel="noopener" class="pf-soc-link" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           </a>
-          <a href="#" class="pf-soc-link" aria-label="LinkedIn">
+          <a href="javascript:void(0)" onclick="alert('LinkedIn profile coming soon!')" class="pf-soc-link" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
           </a>
         </div>
@@ -3958,23 +4251,35 @@
         </ul>
       </div>
 
-      <!-- Column 3: Company -->
+      <!-- Column 3: Quick Links -->
       <div class="fade-up">
-        <h4 class="pf-col-title">Company</h4>
+        <h4 class="pf-col-title">Quick Links</h4>
         <ul class="pf-link-list">
           <li><a href="#work">Portfolio</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="#">FAQ</a></li>
+          <li><a href="#contact">Book a Call</a></li>
         </ul>
       </div>
 
-      <!-- Column 4: Contact -->
+      <!-- Column 4: Company -->
+      <div class="fade-up">
+        <h4 class="pf-col-title">Company</h4>
+        <ul class="pf-link-list">
+          <li><a href="#process">Process</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Contact -->
       <div class="fade-up">
         <h4 class="pf-col-title">Contact</h4>
         <div class="pf-contact-item">
-          <span class="pf-contact-label">Email Us</span>
+          <span class="pf-contact-label">Email</span>
           <a href="mailto:motionnodeedits@gmail.com" class="pf-contact-val">motionnodeedits@gmail.com</a>
         </div>
         <div class="pf-contact-item">
@@ -3984,9 +4289,9 @@
         <div class="pf-contact-item" style="margin-top: 16px;">
           <div class="pf-contact-badge">Response within 24 hours</div>
         </div>
-        <div class="pf-contact-item">
-          <span class="pf-contact-label" style="margin-top:16px;">Location</span>
-          <span class="pf-contact-val" style="color: rgba(255,255,255,0.7);">Available Worldwide</span>
+        <div class="pf-contact-item" style="margin-top: 16px;">
+          <span class="pf-contact-label">Location</span>
+          <span class="pf-contact-val" style="color: rgba(255,255,255,0.7); pointer-events: none;">Available Worldwide</span>
         </div>
       </div>
     </div>
@@ -3994,14 +4299,11 @@
     <!-- Bottom Bar -->
     <div class="pf-bottom fade-up">
       <div class="pf-bottom-copy">
-        &copy; 2026 MotionNode Edits. All rights reserved.
-      </div>
-      <div class="pf-center-tag">
-        Built for creators, brands & businesses
+        &copy; 2026 MotionNode Edits.<br>Premium AI Video Editing Agency.
       </div>
       <div class="pf-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms of Service</a>
       </div>
     </div>
   </div>
@@ -4025,6 +4327,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
-<script src="js/app.min.js" defer></script>
+<script src="js/app.js" defer></script>
 </body>
 </html>

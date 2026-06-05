@@ -429,24 +429,25 @@
         updatePlayBtn(card, false);
       });
 
+      // Mobile friendly click to play/pause anywhere on the card
+      card.addEventListener('click', (e) => {
+        // Prevent interfering with inner controls like mute or fullscreen
+        if (e.target.closest('.wc-btn-mute, .wc-btn-fullscreen')) return;
+        
+        e.preventDefault();
+        if (vid.paused) {
+          vid.dataset.manualPause = 'false';
+          vid.play().catch(() => {});
+          updatePlayBtn(card, true);
+        } else {
+          vid.dataset.manualPause = 'true';
+          vid.pause();
+          updatePlayBtn(card, false);
+        }
+      });
+
       const btnPlayPause = card.querySelector('.wc-btn-playpause');
       const btnMute = card.querySelector('.wc-btn-mute');
-
-      if (btnPlayPause) {
-        btnPlayPause.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          if (vid.paused) {
-            vid.dataset.manualPause = 'false';
-            vid.play().catch(() => {});
-            updatePlayBtn(card, true);
-          } else {
-            vid.dataset.manualPause = 'true';
-            vid.pause();
-            updatePlayBtn(card, false);
-          }
-        });
-      }
 
       if (btnMute) {
         btnMute.addEventListener('click', (e) => {
@@ -573,28 +574,11 @@
      CONTACT FORM
      ============================================================ */
   function initContactForm() {
-    const form    = document.getElementById('ctaForm');
-    const success = document.getElementById('cfSuccess');
-    const error   = document.getElementById('cfError');
-    const submitBtn = document.getElementById('cfSubmit');
-    const emailInput = document.getElementById('cfEmail');
-
-    // Handle Plan Selection
-    const cfPlan = document.getElementById('cfPlan');
-    const cfPlanWrap = document.getElementById('cfPlanWrap');
-    
-    document.querySelectorAll('a[href="#contact"]').forEach(link => {
-      link.addEventListener('click', () => {
-        if (!cfPlan || !cfPlanWrap) return;
-        if (link.classList.contains('price-btn')) {
-          cfPlan.value = link.getAttribute('data-plan') + ' Plan';
-          cfPlanWrap.style.display = 'block';
-        } else {
-          cfPlan.value = '';
-          cfPlanWrap.style.display = 'none';
-        }
-      });
-    });
+    const form    = document.getElementById('inquiryForm');
+    const success = document.getElementById('inqSuccess');
+    const error   = document.getElementById('inqError');
+    const submitBtn = document.getElementById('inqSubmitText');
+    const emailInput = document.getElementById('inqEmail');
 
     if (!form) return;
 
@@ -607,14 +591,16 @@
       const emailVal = emailInput ? emailInput.value.trim() : '';
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(emailVal)) {
-        if (error) error.style.display = 'block';
+        if (error) {
+          error.textContent = 'Please enter a valid email address.';
+          error.style.display = 'block';
+        }
         return;
       }
 
       if (submitBtn) {
         submitBtn.disabled = true;
-        const sp = submitBtn.querySelector('span');
-        if (sp) sp.textContent = 'Sending…';
+        submitBtn.textContent = 'Sending…';
       }
 
       try {
@@ -629,18 +615,25 @@
           if (success) success.style.display = 'block';
         } else {
           resetBtn('Error — try WhatsApp');
+          if (error) {
+            error.textContent = 'Oops! Something went wrong. Please try again or use WhatsApp.';
+            error.style.display = 'block';
+          }
         }
       } catch {
         resetBtn('Network error');
+        if (error) {
+          error.textContent = 'Network error. Please try again later.';
+          error.style.display = 'block';
+        }
       }
     });
 
     function resetBtn(msg) {
       if (!submitBtn) return;
       submitBtn.disabled = false;
-      const sp = submitBtn.querySelector('span');
-      if (sp) sp.textContent = msg || 'Send Message';
-      setTimeout(() => { if (sp) sp.textContent = 'Send Message'; }, 3000);
+      submitBtn.textContent = msg || 'GET MY CUSTOM QUOTE';
+      setTimeout(() => { submitBtn.textContent = 'GET MY CUSTOM QUOTE'; }, 3000);
     }
   }
 
