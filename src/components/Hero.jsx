@@ -195,8 +195,8 @@ export default function Hero({ isLoaded }) {
                 disablePictureInPicture 
                 className="hero-video"
                 ref={videoRef}
-                src="/assets/videos/show_reel.mp4"
-                poster="/assets/posters/showreel-poster.webp"
+                src={`${import.meta.env.BASE_URL}assets/videos/show_reel.mp4`}
+                poster={`${import.meta.env.BASE_URL}assets/posters/showreel-poster.webp`}
                 autoPlay
                 muted
                 loop

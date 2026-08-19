@@ -34,7 +34,7 @@ export default function Navbar() {
           <a href="#" className="nav-logo" data-hover-type="link" style={{ textDecoration: 'none' }}>
             <span className="logo-wrapper" style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '12px' }}>
               <img 
-                src="/image/mne_logo.png" 
+                src={`${import.meta.env.BASE_URL}image/mne_logo.png`} 
                 alt="MotionNodeEdits AI Video Production Studio Logo"
                 className="logo-img-circular"
                 width="40"

@@ -204,8 +204,8 @@ export default function Portfolio() {
   const allVideos = [
     // --- VERTICAL VIDEOS (9/16) ---
     {
-      videoSrc: '/assets/videos/show_reel.mp4',
-      poster: '/assets/posters/showreel-poster.webp',
+      videoSrc: `${import.meta.env.BASE_URL}assets/videos/show_reel.mp4`,
+      poster: `${import.meta.env.BASE_URL}assets/posters/showreel-poster.webp`,
       category: 'AI AVATARS',
       title: 'Studio Showreel',
       desc: 'Vertical showreel highlighting our absolute best edits.',
@@ -219,8 +219,8 @@ export default function Portfolio() {
       aspectRatio: '9/16'
     },
     {
-      videoSrc: '/assets/videos/williams_towing_commercial.mp4',
-      poster: '/assets/posters/showreel-poster.webp',
+      videoSrc: `${import.meta.env.BASE_URL}assets/videos/williams_towing_commercial.mp4`,
+      poster: `${import.meta.env.BASE_URL}assets/posters/showreel-poster.webp`,
       category: 'REELS',
       title: 'Williams Towing',
       desc: 'Dynamic promotional commercial featuring high energy cuts.',
@@ -234,8 +234,8 @@ export default function Portfolio() {
       aspectRatio: '9/16'
     },
     {
-      videoSrc: '/assets/videos/garuda_reel.mp4',
-      poster: '/assets/posters/ai-avatar-intro.webp',
+      videoSrc: `${import.meta.env.BASE_URL}assets/videos/garuda_reel.mp4`,
+      poster: `${import.meta.env.BASE_URL}assets/posters/ai-avatar-intro.webp`,
       category: 'REELS',
       title: 'Garuda Action Story',
       desc: 'High energy vertical action cut optimizing sound rhythm.',
@@ -249,8 +249,8 @@ export default function Portfolio() {
       aspectRatio: '9/16'
     },
     {
-      videoSrc: '/assets/videos/kidney_stones.mp4',
-      poster: '/assets/posters/ai-avatar-virtual.webp',
+      videoSrc: `${import.meta.env.BASE_URL}assets/videos/kidney_stones.mp4`,
+      poster: `${import.meta.env.BASE_URL}assets/posters/ai-avatar-virtual.webp`,
       category: 'REELS',
       title: 'Health Awareness Reel',
       desc: 'Informative social graphics with customized subtitle pacing.',
@@ -264,8 +264,8 @@ export default function Portfolio() {
       aspectRatio: '9/16'
     },
     {
-      videoSrc: '/assets/videos/davinci_resolve_course_trailer.mp4',
-      poster: '/assets/posters/ai-avatar-intro.webp',
+      videoSrc: `${import.meta.env.BASE_URL}assets/videos/davinci_resolve_course_trailer.mp4`,
+      poster: `${import.meta.env.BASE_URL}assets/posters/ai-avatar-intro.webp`,
       category: 'AI AVATARS',
       title: 'DaVinci Resolve Course',
       desc: 'Promotional trailer editing tailored for social platform release.',
@@ -279,8 +279,8 @@ export default function Portfolio() {
       aspectRatio: '9/16'
     },
     {
-      videoSrc: '/assets/videos/ai-reel.mp4',
-      poster: '/assets/posters/ai-reel.webp',
+      videoSrc: `${import.meta.env.BASE_URL}assets/videos/ai-reel.mp4`,
+      poster: `${import.meta.env.BASE_URL}assets/posters/ai-reel.webp`,
       category: 'AI AVATARS',
       title: 'Dynamic AI Social Reel',
       desc: 'High-impact motion design elements tailored for scroll-retention.',
@@ -295,8 +295,8 @@ export default function Portfolio() {
     },
     // --- HORIZONTAL VIDEOS (16/9) ---
     {
-      videoSrc: '/assets/videos/ai-coffee.mp4',
-      poster: '/assets/posters/ai-coffee.webp',
+      videoSrc: `${import.meta.env.BASE_URL}assets/videos/ai-coffee.mp4`,
+      poster: `${import.meta.env.BASE_URL}assets/posters/ai-coffee.webp`,
       category: 'AI ADS',
       title: 'Coffee Commercial',
       desc: 'Premium CGI product showcase exploring camera panning mechanics.',
@@ -310,8 +310,8 @@ export default function Portfolio() {
       aspectRatio: '16/9'
     },
     {
-      videoSrc: '/assets/videos/ai-sweet.mp4',
-      poster: '/assets/posters/ai-sweet.webp',
+      videoSrc: `${import.meta.env.BASE_URL}assets/videos/ai-sweet.mp4`,
+      poster: `${import.meta.env.BASE_URL}assets/posters/ai-sweet.webp`,
       category: 'AI ADS',
       title: 'Sweet Symphony',
       desc: 'Sound-synced fluid art rendering with precision LUT grade overlays.',
@@ -325,8 +325,8 @@ export default function Portfolio() {
       aspectRatio: '16/9'
     },
     {
-      videoSrc: '/assets/videos/ai_skin_serum.mp4',
-      poster: '/assets/posters/ai-avatar-virtual.webp',
+      videoSrc: `${import.meta.env.BASE_URL}assets/videos/ai_skin_serum.mp4`,
+      poster: `${import.meta.env.BASE_URL}assets/posters/ai-avatar-virtual.webp`,
       category: 'AI ADS',
       title: 'Skin Serum Promo',
       desc: 'Premium cosmetic product visualization utilizing AI simulation renders.',
@@ -340,8 +340,8 @@ export default function Portfolio() {
       aspectRatio: '16/9'
     },
     {
-      videoSrc: '/assets/videos/ai-hanuman.mp4',
-      poster: '/assets/posters/ai-hanuman.webp',
+      videoSrc: `${import.meta.env.BASE_URL}assets/videos/ai-hanuman.mp4`,
+      poster: `${import.meta.env.BASE_URL}assets/posters/ai-hanuman.webp`,
       category: 'AI STORY',
       title: 'AI Hanuman Epic',
       desc: 'Widescreen visual narrative driven by custom generative algorithms.',
@@ -355,8 +355,8 @@ export default function Portfolio() {
       aspectRatio: '16/9'
     },
     {
-      videoSrc: '/assets/videos/ai_denta_karna_story.mp4',
-      poster: '/assets/posters/ai-hanuman.webp',
+      videoSrc: `${import.meta.env.BASE_URL}assets/videos/ai_denta_karna_story.mp4`,
+      poster: `${import.meta.env.BASE_URL}assets/posters/ai-hanuman.webp`,
       category: 'AI STORY',
       title: 'AI Denta Karna Story',
       desc: 'Epic cinematic storytelling utilizing customized AI generative renders.',

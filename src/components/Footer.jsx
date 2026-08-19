@@ -50,7 +50,7 @@ export default function Footer() {
           <div className="footer-col footer-col-brand reveal-element">
             <a href="#" className="footer-logo-link" data-hover-type="link" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
               <img 
-                src="/image/mne_logo.png" 
+                src={`${import.meta.env.BASE_URL}image/mne_logo.png`} 
                 alt="MotionNodeEdits Logo" 
                 className="footer-logo" 
                 width="40"

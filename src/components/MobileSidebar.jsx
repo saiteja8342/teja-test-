@@ -87,7 +87,7 @@ export default function MobileSidebar({ isOpen, onClose }) {
             <div className="mobile-sidebar-header">
               <div className="mobile-sidebar-brand">
                 <img
-                  src="/image/mne_logo.png"
+                  src={`${import.meta.env.BASE_URL}image/mne_logo.png`}
                   alt="MotionNodeEdits AI Video Production Studio Logo"
                   className="mobile-sidebar-logo"
                   width="40"
